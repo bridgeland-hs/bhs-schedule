@@ -1,11 +1,7 @@
 const data = require('../data/schedule.json');
 
-const now = new Date();
-
-now.setHours(0, 0, 0, 0);
-
 module.exports = () => {
-  const todaySchedule = data[now.getDate() === 3 ? 'advisory' : 'regular'];
+  const todaySchedule = data[new Date().getDate() === 3 ? 'advisory' : 'regular'];
 
   const schedule = {};
 

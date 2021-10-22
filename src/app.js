@@ -14,19 +14,25 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.get('/schedules', (req, res) => {
+app.get('/bhs', (req, res) => {
+  res.json({
+    routes: ['schedule', 'schedules'],
+  });
+});
+
+app.get('/bhs/schedules/', (req, res) => {
   res.json(Object.keys(data));
 });
 
-app.get('/schedule/', (req, res) => {
+app.get('/bhs/schedule/all', (req, res) => {
   res.json(data);
 });
 
-app.get('/schedule/today', (req, res) => {
+app.get('/bhs/schedule/today', (req, res) => {
   res.json(dailySchedule());
 });
 
-app.get('/schedule/:schedule', (req, res) => {
+app.get('/bhs/schedule/:schedule', (req, res) => {
   const { schedule } = req.params;
   const scheduleData = data[schedule];
   if (scheduleData) {
