@@ -1,8 +1,6 @@
 const data = require('../data/schedule.json');
 
-module.exports = () => {
-  const todaySchedule = data[new Date().getDate() === 3 ? 'advisory' : 'regular'];
-
+module.exports = (todaySchedule = data[new Date().getDate() === 3 ? 'advisory' : 'regular']) => {
   const schedule = {};
 
   Object.entries(todaySchedule).forEach(([key, value]) => {

@@ -42,4 +42,14 @@ app.get('/bhs/schedule/:schedule', (req, res) => {
   }
 });
 
+app.get('/bhs/schedule/:schedule/today', (req, res) => {
+  const { schedule } = req.params;
+  const scheduleData = data[schedule];
+  if (scheduleData) {
+    res.json(dailySchedule(scheduleData));
+  } else {
+    res.status(404).send('Schedule not found');
+  }
+});
+
 module.exports = app;
