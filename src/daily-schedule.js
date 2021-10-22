@@ -6,8 +6,6 @@ module.exports = () => {
   const schedule = {};
 
   Object.entries(todaySchedule).forEach(([key, value]) => {
-    console.log(key, value);
-
     const parts = [];
     value.forEach((item) => {
       const { name, start, end } = item;
